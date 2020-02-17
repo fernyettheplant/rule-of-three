@@ -12,7 +12,11 @@
       class="hover:underline text-gray-800"
       rel="noreferrer nofollow"
       href="//nuxtjs.org/"
-    >NuxtJS</a></small>
+    >NuxtJS</a>&nbsp;&amp;&nbsp;<a
+      class="hover:underline text-gray-800"
+      rel="noreferrer nofollow"
+      href="//tailwindcss.com/"
+    >TailwindCSS</a></small>
   </footer>
 </template>
 
