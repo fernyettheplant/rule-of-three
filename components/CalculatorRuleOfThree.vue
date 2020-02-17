@@ -39,8 +39,8 @@
     <div class="calculator__div7 sm:text-right">
       <span class="font-semibold text-xl">IS</span>
     </div>
-    <div class="calculator__div8 sm:text-center shadow-md bg-gray-200 text-2xl font-black">
-      {{ result || '🤔❓' }}
+    <div class="calculator__div8 text-center shadow-md bg-gray-200 text-2xl font-black">
+      {{ resultStr }}
     </div>
   </div>
 </template>
@@ -72,6 +72,19 @@ export default Vue.extend({
         result = (this.box3 * this.box2) / this.box1
       } else {
         result = null
+      }
+
+      return result
+    },
+    resultStr (): number | string {
+      let result: number | string
+
+      if (this.result === null) {
+        result = '🤔❓'
+      } else if (!isFinite(this.result)) {
+        result = '♾ 😱'
+      } else {
+        result = this.result
       }
 
       return result
