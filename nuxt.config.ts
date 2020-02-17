@@ -3,14 +3,14 @@ import { Configuration } from '@nuxt/types'
 const config: Configuration = {
   mode: 'universal',
   head: {
-    title: process.env.npm_package_name || '',
+    title: 'Rule of Three ⚡',
     htmlAttrs: {
       lang: 'en'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      { hid: 'description', name: 'description', content: 'Simple and Fast Rule of three tool ⚡' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -24,7 +24,8 @@ const config: Configuration = {
   buildModules: [
     '@nuxt/typescript-build',
     '@nuxtjs/eslint-module',
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/pwa'
   ],
   modules: [
   ],
@@ -33,6 +34,10 @@ const config: Configuration = {
     }
   },
   typescript: {
+  },
+  pwa: {
+    workbox: {
+    }
   }
 }
 
