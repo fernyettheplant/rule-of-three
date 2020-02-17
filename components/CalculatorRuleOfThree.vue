@@ -1,5 +1,5 @@
 <template>
-  <div class="calculator sm:mx-20">
+  <div class="calculator mx-10 sm:mx-20">
     <div class="calculator__div1 sm:text-right">
       <label class="font-semibold text-xl" for="box1">IF</label>
     </div>
@@ -40,7 +40,7 @@
       <span class="font-semibold text-xl">IS</span>
     </div>
     <div class="calculator__div8 sm:text-center shadow-md bg-gray-200 text-2xl font-black">
-      {{ result || '' }}
+      {{ result || '🤔❓' }}
     </div>
   </div>
 </template>
@@ -81,12 +81,13 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+$mobile-size: 640px;
+
 .calculator {
   display: grid;
 
-  @media (min-width: 640px) {
+  @media (min-width: $mobile-size) {
     grid-template-columns: 1fr 6fr 1fr 6fr 1fr;
-    grid-template-rows: repeat(5, 1fr);
     grid-column-gap: 10px;
     grid-row-gap: 20px;
 
@@ -113,6 +114,38 @@ export default Vue.extend({
     }
     &__div8 {
       grid-area: 2 / 4 / 3 / 5;
+    }
+  }
+
+  @media (max-width: $mobile-size) {
+    grid-template-columns: 1fr 6fr;
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 20px;
+
+    &__div1 {
+      grid-area: 1 / 1 / 2 / 2;
+    }
+    &__div2 {
+      grid-area: 1 / 2 / 2 / 3;
+    }
+    &__div3 {
+      grid-area: 2 / 1 / 3 / 2;
+    }
+    &__div4 {
+      grid-area: 2 / 2 / 3 / 3;
+    }
+    &__div5 {
+      grid-area: 3 / 1 / 4 / 2;
+    }
+    &__div6 {
+      grid-area: 3 / 2 / 4 / 3;
+    }
+    &__div7 {
+      grid-area: 4 / 1 / 5 / 2;
+    }
+    &__div8 {
+      grid-area: 4 / 2 / 5 / 3;
     }
   }
 }
